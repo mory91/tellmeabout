@@ -1,0 +1,6 @@
+given the Linkedin information {information} of the person from I want you to create:
+1. a short summary
+2. two intresting facts about them
+3. A topic that may intrest them
+4. Two creative ice breakers to open a conversatoin with them
+{format_instructions}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tell Me About...</title>
+        <script src="https://cdn.tailwindcss.com?plugins=typography,aspect-ratio"></script>
+        <script src="https://unpkg.com/htmx.org@1.9.9"></script>
+	<style>
+		body {
+		    background-color: #000;
+		    color: #fff;
+		}
+
+		#title {
+		    position: fixed;
+		    top: 20px; /* Adjust the top position as needed */
+		    left: 50%;
+		    transform: translateX(-50%);
+		}
+
+		#inputContainer {
+		    position: absolute;
+		    top: 50%;
+		    left: 50%;
+		    transform: translate(-50%, -50%);
+		}
+
+		#inputField {
+		    background-color: rgba(255, 255, 255, 0.1); /* Adjust the alpha (fourth value) as needed */
+		    color: #fff;
+		}
+
+		#contentCard {
+		    position: relative;
+		    max-width: 400px;
+		    margin: 0 auto;
+		}
+
+		#profilePhoto {
+		    width: 120px; /* Adjust the size as needed */
+		    height: 120px; /* Adjust the size as needed */
+		    border-radius: 50%;
+		    overflow: hidden;
+		    margin: 0 auto;
+		    margin-bottom: 20px;
+		}
+
+		#profilePhoto img {
+		    width: 100%;
+		    height: 100%;
+		    object-fit: cover;
+		}
+
+		.info-list {
+		    list-style-type: none;
+		    padding: 0;
+		    text-align: left;
+		}
+
+		.info-list li {
+		    margin-bottom: 8px;
+		}
+
+    	</style>
+    </head>
+    <body class="flex items-center justify-center h-screen">
+        {% block content %}
+        {% endblock content %}
+    </body>
+    <script>
+	const inputContainer = document.getElementById('inputContainer');
+	const inputField = document.getElementById('inputField');
+	const submitButton = document.getElementById('submitButton');
+	const contentCard = document.getElementById('contentCard');
+
+	submitButton.addEventListener('click', () => {
+		// Fade out the input container
+		inputContainer.style.opacity = '0';
+		inputContainer.style.transition = 'opacity 0.5s ease';
+		setTimeout(() => {
+			inputContainer.style.display = 'none';
+		}, 500);
+
+		// Show and fade in the content card
+		contentCard.style.display = 'block';
+		contentCard.style.opacity = '0';
+		setTimeout(() => {
+			contentCard.style.opacity = '1';
+			contentCard.style.transition = 'opacity 0.5s ease';
+		}, 500);	
+	});
+    </script>
+</html>

@@ -1,0 +1,17 @@
+<div id="profilePhoto">
+    <img src="{{photo}}" alt="Profile Photo">
+</div>
+<h3 class="text-lg font-semibold mt-4 mb-2">Summary</h3>
+<p>{{ data.summary }}</p>
+<h3 class="text-lg font-semibold mt-4 mb-2">Facts</h3>
+<ul class="info-list">
+    {% for fact in data.facts %}
+    <li>{{ fact }}</li>
+    {% endfor %}
+</ul>
+<h3 class="text-lg font-semibold mt-4 mb-2">Ice Breakers</h3>
+<ul class="info-list">
+    {% for ice in data.icebreakers %}
+    <li>{{ ice }}</li>
+    {% endfor %}
+</ul>
